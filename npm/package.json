@@ -1,6 +1,6 @@
 {
   "name": "modalfy",
-  "version": "0.0.6",
+  "version": "0.0.9",
   "description": "Simple React Modal",
   "main": "lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "docs": "webpack-dev-server --mode development",
     "docs:prod": "webpack --mode production"
   },
-  "keywords": [],
+  "keywords": ["React", "Modal"],
   "license": "MIT",
   "peerDependencies": {
     "react": "^15.3.0 || ^16.2.0",

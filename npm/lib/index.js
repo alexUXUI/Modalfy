@@ -103,7 +103,7 @@ function (_React$Component) {
     value: function render() {
       var open = this.state.open;
       var id = this.props.id;
-      return _react.default.createElement("div", null, open ? this.renderModal(open, id) : null, _react.default.createElement("button", {
+      return _react.default.createElement("div", null, open ? this.renderModal(open, id || null) : null, _react.default.createElement("button", {
         onClick: this.open
       }, "open"));
     }

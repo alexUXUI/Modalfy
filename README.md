@@ -1,6 +1,6 @@
-# Simple Modal
+# Modalfy
 
-> I just want a modal component that unmounts when it is closed. 
+> This project was insipred by the need for a modal component that unmounts when it is closed.
 
 ## Usage
 
@@ -38,6 +38,12 @@ Add your own bahvior with functions that are passed to the react lifecycle metho
 
 > All of the properties are optional, and will fallback to defualts
 
+4. Styling
+
+```javascript
+@todo: make styles extendable
+```
+
 ## Run the Sample App
 
 1. This project was created with create-react-app, and uses all the regular CRA scripts.
@@ -53,3 +59,21 @@ $ yarn start
 ```
 $ yarn test
 ```
+
+## Contributing
+
+Contributions are more than welcome!
+
+> This project uses [react-npm-component-starter](https://github.com/markusenglund/react-npm-component-starter) for it's NPM package generating boilerplate code. Many thanks to [@markusenglund](https://github.com/markusenglund)
+
+The stuff you need to start extedning Modalfy is located in `/npm`
+
+```shell
+$ cd npm
+$ yarn dev
+// make you changes in src/lib
+$ yarn docs:prod // build node module
+// make a PR against this repo with you changes 🎉
+```
+
+> There is another demo app using Modalfy in the npm folder. Use `yarn dev` to see it running on `localhost:8000`

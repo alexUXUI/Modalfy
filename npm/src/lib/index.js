@@ -65,7 +65,7 @@ export default class Modalfy extends React.Component {
 
     return (
       <div>
-        { open ? this.renderModal(open, id) : null }
+        { open ? this.renderModal(open, id || null) : null }
         <button onClick={this.open}>open</button>
       </div>
     )
