@@ -8,6 +8,7 @@ const App = () => (
     updated={() => console.log('Component lifecycle hook: updated')}
     unmounted={() => console.log('Component lifecycle hook: unmounted')}
     content={<div>I am content</div>}
+    loadingIndicator={<div>LOADING</div>}
   />
 )
 

@@ -44,7 +44,7 @@ export class ModalContainer extends React.Component {
     // console.log('Unmounted function default')
   }
 
-  renderModal(open, id, content) {
+  renderModal(open, id, content, loadingIndicator) {
     return (
       <Modal 
         id={id}
@@ -54,6 +54,7 @@ export class ModalContainer extends React.Component {
         mounted={this.mounted}
         unmounted={this.unmounted}
         content={content}
+        loadingIndicator={loadingIndicator}
       />
     )
   }
@@ -61,11 +62,11 @@ export class ModalContainer extends React.Component {
   render () {
 
     const { open } = this.state
-    const { id, content } = this.props
+    const { id, content, loadingIndicator } = this.props
 
     return (
       <div>
-        { open ? this.renderModal(open, id || null, content || null) : null }
+        { open ? this.renderModal(open, id || null, content || null, loadingIndicator || 'loading...') : null }
         <button onClick={this.open}>open</button>
       </div>
     )
