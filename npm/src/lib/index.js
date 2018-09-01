@@ -1,7 +1,7 @@
 import React from 'react'
 import Modal from './modal.component';
 import './styles/modal.css'
-export class ModalContainer extends React.Component {
+export default class Modalfy extends React.Component {
 
   constructor(props) {
     super(props)

@@ -88,22 +88,25 @@ function (_React$Component) {
     }
   }, {
     key: "renderModal",
-    value: function renderModal(open, id) {
+    value: function renderModal(open, id, content) {
       return _react.default.createElement(_modal.default, {
         id: id,
         open: open,
         close: this.close,
         updated: this.updated,
         mounted: this.mounted,
-        unmounted: this.unmounted
+        unmounted: this.unmounted,
+        content: content
       });
     }
   }, {
     key: "render",
     value: function render() {
       var open = this.state.open;
-      var id = this.props.id;
-      return _react.default.createElement("div", null, open ? this.renderModal(open, id || null) : null, _react.default.createElement("button", {
+      var _this$props = this.props,
+          id = _this$props.id,
+          content = _this$props.content;
+      return _react.default.createElement("div", null, open ? this.renderModal(open, id || null, content || null) : null, _react.default.createElement("button", {
         onClick: this.open
       }, "open"));
     }

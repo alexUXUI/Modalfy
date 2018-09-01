@@ -12,6 +12,7 @@ function Demo() {
         mounted={() => console.log('mounted')}
         updated={() => console.log('updated')}
         unmounted={() => console.log('unmounted')}
+        content={<div>I am content</div>}
       />
     </div>
   );

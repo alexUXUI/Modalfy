@@ -54,6 +54,10 @@ function (_React$Component) {
       }, "close");
     });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderContent", function (content) {
+      return _react.default.createElement("span", null, content);
+    });
+
     _this.state = {
       open: false,
       loading: false
@@ -64,12 +68,7 @@ function (_React$Component) {
   _createClass(Modal, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.mounted(); // simulate some async behavior, a network call, perhaps
-      // this.setState({ loading: true }, () => {
-      //   setTimeout(() => {
-      //     this.setState({ loading: false })
-      //   }, 200)
-      // })
+      this.props.mounted();
     }
   }, {
     key: "componentDidUpdate",
@@ -86,13 +85,14 @@ function (_React$Component) {
     value: function render() {
       var _this$props = this.props,
           close = _this$props.close,
-          id = _this$props.id;
+          id = _this$props.id,
+          content = _this$props.content;
       var showHideClassName = this.props.open ? "modal display-block" : "modal display-none";
       return _react.default.createElement("div", null, _react.default.createElement("div", {
         className: showHideClassName
       }, _react.default.createElement("section", {
         className: "modal-main"
-      }, this.state.loading ? 'loading...' : _react.default.createElement("div", null, this.renderTitle(id), this.renderCloseButton(close)))));
+      }, this.state.loading ? 'loading...' : _react.default.createElement("div", null, this.renderTitle(id), this.renderContent(content), this.renderCloseButton(close)))));
     }
   }]);
 
