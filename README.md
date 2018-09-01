@@ -19,21 +19,27 @@ import Modalfy from 'modalfy';
 
   <Modalfy
     id={10}
-    mounted={modal => { 
-      // do something async, 
-      modal.setState({ loading: true }, () => { //setState on modal's state
+    mounted={modal => console.log(`Mounted: ${ modal }`)}
+    updated={modal => console.log(`Updated: ${ modal }`)}
+    unmounted={modal => console.log(`Unmounted: ${ modal }`)}
+    content={<div>Content to Modalfy</div>}
+    loadingIndicator={<div>loading...</div>}
+  />
+```
+> Lifecycle methods expose the undelying modal component, making it available in your custom callback functions
+
+```javascript
+  <Modalfy
+    mounted={modal => {
+      // custom call back, doing something async, 
+      modal.setState({ loading: true }, () => { // setting state on modal's state
         setTimeout(() => {
           modal.setState({ loading: false })
         }, 1000)
       })
     }}
-    updated={modal => console.log(`Updated: ${modal}`)}
-    unmounted={modal => console.log(`Unmounted: ${modal}`)}
-    content={<div>Content to Modalfy</div>}
-    loadingIndicator={<div>loading...</div>}
   />
 ```
-> Modalfy makes the undelying modal component available to your custom call back functions!
 
 3. Properties
 
@@ -46,6 +52,7 @@ Add your own bahvior with functions that are passed to the react lifecycle metho
 | updated | Function | `componentDidUpdate` |
 | unmouted | Function | `componentWillUnmount` |
 | content | JSX | the content of your modal |
+| loadingIndicator | JSX | loading component |
 
 > All of the properties are optional, and will fallback to defualts
 
