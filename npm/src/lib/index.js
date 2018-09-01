@@ -1,8 +1,7 @@
 import React from 'react'
 import Modal from './modal.component';
 import './styles/modal.css'
-
-export default class Modalfy extends React.Component {
+export class ModalContainer extends React.Component {
 
   constructor(props) {
     super(props)
@@ -45,7 +44,7 @@ export default class Modalfy extends React.Component {
     // console.log('Unmounted function default')
   }
 
-  renderModal(open, id) {
+  renderModal(open, id, content) {
     return (
       <Modal 
         id={id}
@@ -54,6 +53,7 @@ export default class Modalfy extends React.Component {
         updated={this.updated}
         mounted={this.mounted}
         unmounted={this.unmounted}
+        content={content}
       />
     )
   }
@@ -61,11 +61,11 @@ export default class Modalfy extends React.Component {
   render () {
 
     const { open } = this.state
-    const { id } = this.props
+    const { id, content } = this.props
 
     return (
       <div>
-        { open ? this.renderModal(open, id || null) : null }
+        { open ? this.renderModal(open, id || null, content || null) : null }
         <button onClick={this.open}>open</button>
       </div>
     )

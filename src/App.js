@@ -7,6 +7,7 @@ const App = () => (
     mounted={() => console.log('Component lifecycle hook: mounted')}
     updated={() => console.log('Component lifecycle hook: updated')}
     unmounted={() => console.log('Component lifecycle hook: unmounted')}
+    content={<div>I am content</div>}
   />
 )
 

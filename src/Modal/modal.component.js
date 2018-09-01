@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Modal extends React.Component {
+export default class Modal extends React.Component {
 
   constructor(props) {
     super(props)
@@ -12,13 +12,6 @@ class Modal extends React.Component {
 
   componentDidMount() {
     this.props.mounted()
-    
-    // simulate some async behavior, a network call, perhaps
-    // this.setState({ loading: true }, () => {
-    //   setTimeout(() => {
-    //     this.setState({ loading: false })
-    //   }, 200)
-    // })
   }
 
   componentDidUpdate() {
@@ -39,8 +32,12 @@ class Modal extends React.Component {
     </button>
   )
 
+  renderContent = content => (
+    <span>{content}</span>
+  )
+
   render() {
-    const { close, id } = this.props
+    const { close, id, content } = this.props
     
     const showHideClassName = this.props.open 
       ? "modal display-block" 
@@ -55,6 +52,7 @@ class Modal extends React.Component {
                 ? 'loading...'
                 : <div>
                     { this.renderTitle(id) }
+                    { this.renderContent(content) }
                     { this.renderCloseButton(close) }
                   </div>
             }
@@ -64,5 +62,3 @@ class Modal extends React.Component {
     )
   }
 }
-
-export default Modal

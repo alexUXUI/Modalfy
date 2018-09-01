@@ -18,10 +18,11 @@ import Modalfy from 'modalfy';
 ```javascript
 
   <Modalfy
-    id={}
-    mounted={}
-    updated={}
-    unmounted={}
+    id={100}
+    mounted={() => console.log('mounted')}
+    updated={() => console.log('updated')}
+    unmounted={() => console.log('unmounted')}
+    content={<div>Modal content</div>}
   />
 ```
 
@@ -35,6 +36,7 @@ Add your own bahvior with functions that are passed to the react lifecycle metho
 | mounted | Function | `componentDidMount` |
 | updated | Function | `componentDidUpdate` |
 | unmouted | Function | `componentWillUnmount` |
+| content | JSX | the content of your modal |
 
 > All of the properties are optional, and will fallback to defualts
 
