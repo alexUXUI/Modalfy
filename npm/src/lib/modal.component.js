@@ -1,5 +1,6 @@
 import React from 'react'
-class Modal extends React.Component {
+
+export default class Modal extends React.Component {
 
   constructor(props) {
     super(props)
@@ -10,15 +11,15 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
-    this.props.mounted()
+    this.props.mounted(this)
   }
 
   componentDidUpdate() {
-    this.props.updated()
+    this.props.updated(this)
   }
 
   componentWillUnmount() {
-    this.props.unmounted()
+    this.props.unmounted(this)
   }
 
   renderTitle = id => (
@@ -36,7 +37,7 @@ class Modal extends React.Component {
   )
 
   render() {
-    const { close, id, content } = this.props
+    const { close, id, content, loadingIndicator } = this.props
     
     const showHideClassName = this.props.open 
       ? "modal display-block" 
@@ -47,13 +48,13 @@ class Modal extends React.Component {
         <div className={showHideClassName}>
           <section className="modal-main">
             {
-              this.state.loading 
-                ? 'loading...'
-                : <div>
+              this.state.loading
+                ? <span>{ loadingIndicator }</span>
+                : <span>
                     { this.renderTitle(id) }
                     { this.renderContent(content) }
                     { this.renderCloseButton(close) }
-                  </div>
+                  </span>
             }
           </section>
         </div>
@@ -61,5 +62,3 @@ class Modal extends React.Component {
     )
   }
 }
-
-export default Modal

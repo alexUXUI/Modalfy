@@ -1,14 +1,21 @@
 import React from 'react'
-import { ModalContainer } from './Modal/modal.container';
+import Modalfy from './Modal/modal.container';
 
 const App = () => (
-  <ModalContainer
+  <Modalfy
     id={10}
-    mounted={() => console.log('Component lifecycle hook: mounted')}
-    updated={() => console.log('Component lifecycle hook: updated')}
-    unmounted={() => console.log('Component lifecycle hook: unmounted')}
-    content={<div>I am content</div>}
-    loadingIndicator={<div>LOADING</div>}
+    mounted={modal => { 
+      // do something async, 
+      modal.setState({ loading: true }, () => { //setState on modal's state
+        setTimeout(() => {
+          modal.setState({ loading: false })
+        }, 1000)
+      })
+    }}
+    updated={modal => console.log(`Updated: ${modal}`)}
+    unmounted={modal => console.log(`Unmounted: ${modal}`)}
+    content={<div>Content to Modalfy</div>}
+    loadingIndicator={<div>loading...</div>}
   />
 )
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Modal from './modal.component';
 import './styles/modal.css'
-export class ModalContainer extends React.Component {
+export default class Modalfy extends React.Component {
 
   constructor(props) {
     super(props)
@@ -19,9 +19,9 @@ export class ModalContainer extends React.Component {
      * user can pass functions for lifecycle hooks
      * or fall back to default 
      */
-    this.mounted = this.props.mounted.bind(this) || this.mounted.bind(this) 
-    this.updated = this.props.updated.bind(this) || this.updated.bind(this)
-    this.unmounted = this.props.unmounted.bind(this) || this.unmounted.bind(this)
+    this.mounted = this.props.mounted ? this.props.mounted.bind(this) : this.mounted.bind(this) 
+    this.updated = this.props.updated ? this.props.updated.bind(this) : this.updated.bind(this)
+    this.unmounted = this.props.unmounted ? this.props.unmounted.bind(this) : this.unmounted.bind(this)
   }
 
   open() {

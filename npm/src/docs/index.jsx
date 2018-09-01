@@ -9,10 +9,18 @@ function Demo() {
       <h1>Click to open the modal</h1>
       <Modalfy
         id={10}
-        mounted={() => console.log('mounted')}
-        updated={() => console.log('updated')}
-        unmounted={() => console.log('unmounted')}
-        content={<div>I am content</div>}
+        mounted={modal => { 
+          // do something async, 
+          modal.setState({ loading: true }, () => { //setState on modal's state
+            setTimeout(() => {
+              modal.setState({ loading: false })
+            }, 1000)
+          })
+        }}
+        updated={modal => console.log(`Updated: ${modal}`)}
+        unmounted={modal => console.log(`Unmounted: ${modal}`)}
+        content={<div>Content to Modalfy</div>}
+        loadingIndicator={<div>loading...</div>}
       />
     </div>
   );

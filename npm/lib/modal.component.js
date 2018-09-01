@@ -68,17 +68,17 @@ function (_React$Component) {
   _createClass(Modal, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.mounted();
+      this.props.mounted(this);
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      this.props.updated();
+      this.props.updated(this);
     }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      this.props.unmounted();
+      this.props.unmounted(this);
     }
   }, {
     key: "render",
@@ -86,18 +86,18 @@ function (_React$Component) {
       var _this$props = this.props,
           close = _this$props.close,
           id = _this$props.id,
-          content = _this$props.content;
+          content = _this$props.content,
+          loadingIndicator = _this$props.loadingIndicator;
       var showHideClassName = this.props.open ? "modal display-block" : "modal display-none";
       return _react.default.createElement("div", null, _react.default.createElement("div", {
         className: showHideClassName
       }, _react.default.createElement("section", {
         className: "modal-main"
-      }, this.state.loading ? 'loading...' : _react.default.createElement("div", null, this.renderTitle(id), this.renderContent(content), this.renderCloseButton(close)))));
+      }, this.state.loading ? _react.default.createElement("span", null, loadingIndicator) : _react.default.createElement("span", null, this.renderTitle(id), this.renderContent(content), this.renderCloseButton(close)))));
     }
   }]);
 
   return Modal;
 }(_react.default.Component);
 
-var _default = Modal;
-exports.default = _default;
+exports.default = Modal;

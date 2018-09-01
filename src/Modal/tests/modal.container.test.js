@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModalContainer } from '../modal.container'
+import Modalfy from '../modal.container'
 import { mount } from 'enzyme'
 
 import { configure } from 'enzyme'
@@ -19,7 +19,7 @@ describe('Modal Container testing Suite', () => {
 
   beforeEach(() => {
     MODAL = mount(
-      <ModalContainer 
+      <Modalfy 
         id={ID}
         mounted={() => console.log('Component lifecycle hook: mounted')}
         updated={() => console.log('Component lifecycle hook: updated')}

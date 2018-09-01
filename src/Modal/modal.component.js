@@ -11,15 +11,15 @@ export default class Modal extends React.Component {
   }
 
   componentDidMount() {
-    this.props.mounted()
+    this.props.mounted(this)
   }
 
   componentDidUpdate() {
-    this.props.updated()
+    this.props.updated(this)
   }
 
   componentWillUnmount() {
-    this.props.unmounted()
+    this.props.unmounted(this)
   }
 
   renderTitle = id => (

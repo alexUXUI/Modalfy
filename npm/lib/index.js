@@ -88,7 +88,7 @@ function (_React$Component) {
     }
   }, {
     key: "renderModal",
-    value: function renderModal(open, id, content) {
+    value: function renderModal(open, id, content, loadingIndicator) {
       return _react.default.createElement(_modal.default, {
         id: id,
         open: open,
@@ -96,7 +96,8 @@ function (_React$Component) {
         updated: this.updated,
         mounted: this.mounted,
         unmounted: this.unmounted,
-        content: content
+        content: content,
+        loadingIndicator: loadingIndicator
       });
     }
   }, {
@@ -105,8 +106,9 @@ function (_React$Component) {
       var open = this.state.open;
       var _this$props = this.props,
           id = _this$props.id,
-          content = _this$props.content;
-      return _react.default.createElement("div", null, open ? this.renderModal(open, id || null, content || null) : null, _react.default.createElement("button", {
+          content = _this$props.content,
+          loadingIndicator = _this$props.loadingIndicator;
+      return _react.default.createElement("div", null, open ? this.renderModal(open, id || null, content || null, loadingIndicator || 'loading...') : null, _react.default.createElement("button", {
         onClick: this.open
       }, "open"));
     }

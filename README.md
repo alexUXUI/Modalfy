@@ -18,13 +18,22 @@ import Modalfy from 'modalfy';
 ```javascript
 
   <Modalfy
-    id={100}
-    mounted={() => console.log('mounted')}
-    updated={() => console.log('updated')}
-    unmounted={() => console.log('unmounted')}
-    content={<div>Modal content</div>}
+    id={10}
+    mounted={modal => { 
+      // do something async, 
+      modal.setState({ loading: true }, () => { //setState on modal's state
+        setTimeout(() => {
+          modal.setState({ loading: false })
+        }, 1000)
+      })
+    }}
+    updated={modal => console.log(`Updated: ${modal}`)}
+    unmounted={modal => console.log(`Unmounted: ${modal}`)}
+    content={<div>Content to Modalfy</div>}
+    loadingIndicator={<div>loading...</div>}
   />
 ```
+> Modalfy makes the undelying modal component available to your custom call back functions!
 
 3. Properties
 
