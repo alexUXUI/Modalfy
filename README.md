@@ -4,11 +4,12 @@
 
 ## Usage
 
-1. Import `ModalContainer` and place anywhere  you would like *button* for the modal to appear.
+1. Import `ModalContainer` and place anywhere  you would like the button for the modal to appear.
 
 ```javascript
 import React from 'react'
 import { ModalContainer } from './Modal/modal.container';
+import './styles/modal.css'
 
 <ModalContainer />
 ```
@@ -18,6 +19,7 @@ import { ModalContainer } from './Modal/modal.container';
 ```javascript
 import React from 'react'
 import { ModalContainer } from './Modal/modal.container';
+import './styles/modal.css'
 
   <ModalContainer
     id={}
@@ -28,6 +30,8 @@ import { ModalContainer } from './Modal/modal.container';
 ```
 
 3. Properties
+
+Add your own bahvior with functions that are passed to the react lifecycle methods of ModalContainer.
 
 | property | type | description
 |---|---| ---|
