@@ -1,6 +1,5 @@
 import React from 'react'
 import { ModalContainer } from '../modal.container'
-import Modal from '../modal.component'
 import { mount } from 'enzyme'
 
 import { configure } from 'enzyme'
@@ -9,17 +8,17 @@ configure({ adapter: new Adapter() })
 
 describe('Modal Container testing Suite', () => {
 
-  let testModal
+  let MODAL
   let ID = 10
 
   const clickButton = button => {
-    return testModal
+    return MODAL
       .find(button)
       .simulate('click')
   }
 
   beforeEach(() => {
-    testModal = mount(
+    MODAL = mount(
       <ModalContainer 
         id={ID}
         mounted={() => console.log('Component lifecycle hook: mounted')}
@@ -29,35 +28,35 @@ describe('Modal Container testing Suite', () => {
     )
   })
   
-  it('It has an open button', () => {
-    expect(testModal.find('button')).toHaveLength(1);
+  it('It has an "open" button', () => {
+    expect(MODAL.find('button')).toHaveLength(1);
   })
 
   it('Modal is intially closed', () => {
-    expect(testModal.state()).toEqual({ open: false })
+    expect(MODAL.state()).toEqual({ open: false })
   })
 
-  it('Clicking the button updates state', () => {
+  it('Clicking the button updates state to true', () => {
     clickButton('button') 
-    expect(testModal.state()).toEqual({ open: true })
+    expect(MODAL.state()).toEqual({ open: true })
   })
 
   it('Displays the correct ID in title', () => {
     clickButton('button') 
-    expect(testModal.find('.modal__title').text()).toBe(`Modal: ${ID}`)
+    expect(MODAL.find('.modal__title').text()).toBe(`Modal: ${ID}`)
   })
 
   it('It has a close button', () => {
     clickButton('button') 
-    expect(testModal.find('.close__button')).toHaveLength(1);
+    expect(MODAL.find('.close__button')).toHaveLength(1);
   })
 
   it('Close button updates state when clicked', () => {
     clickButton('button') 
-    expect(testModal.state()).toEqual({ open: true })
+    expect(MODAL.state()).toEqual({ open: true })
 
     clickButton('.close__button') 
-    expect(testModal.state()).toEqual({ open: false })
+    expect(MODAL.state()).toEqual({ open: false })
   })
 })
 

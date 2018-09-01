@@ -34,15 +34,15 @@ export class ModalContainer extends React.Component {
   }
 
   mounted() {
-    console.log('Mounted function default')
+    // console.log('Mounted function default')
   }
 
   updated() {
-    console.log('Updated function default')
+    // console.log('Updated function default')
   }
 
   unmounted() {
-    console.log('Unmounted function default')
+    // console.log('Unmounted function default')
   }
 
   renderModal(open, id) {

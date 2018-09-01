@@ -8,17 +8,11 @@ configure({ adapter: new Adapter() })
 
 describe('Modal Component testing Suite', () => {
 
-  let testModal
-  let ID = 10
-
-  const clickButton = button => {
-    return testModal
-      .find(button)
-      .simulate('click')
-  }
+  let MODAL
+  let ID = 100
 
   beforeEach(() => {
-    testModal = mount(
+    MODAL = mount(
       <Modal 
         id={ID}
         mounted={() => console.log('Component lifecycle hook: mounted')}
@@ -29,11 +23,10 @@ describe('Modal Component testing Suite', () => {
   })
 
   it('It has the right props an open button', () => {
-    expect(testModal.props().id).toBe(10)
-    expect(testModal.props().mounted).toBeDefined()
-    expect(testModal.props().updated).toBeDefined()
-    expect(testModal.props().unmounted).toBeDefined()
+    expect(MODAL.props().id).toBe(100)
+    expect(MODAL.props().mounted).toBeDefined()
+    expect(MODAL.props().updated).toBeDefined()
+    expect(MODAL.props().unmounted).toBeDefined()
   })
-
 })
 
